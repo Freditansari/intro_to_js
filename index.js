@@ -1,22 +1,11 @@
-let customers=[ 
-    {customerName: "Joe", age: 43},
-    {customerName: "Alex", age: 22} 
+let shoppingCarts=[
+    {productName: "banana", price: 100, qty: 2, subtotal: 200},
+    {productName: "dragon fruit", price: 150, qty: 1, subtotal: 150},
+    {productName: "screwdriver", price: 10, qty: 1, subtotal: 10.10},
 ]
 
-// let newCustomer = {customerName: "Brianna", age: 24}
-
-let newCustomer = [{customerName: "Brianna", age: 24},
- {customerName: "Diane", age: 34}]
-
-// let newCustomersList = customers.concat(newCustomer)
-
-//ES-5 2009 version javascript
-let newCustomersList = customers.concat(newCustomer);
-
-console.log(newCustomersList)
-
-// Es- 6 2015 v js: 
-
-let newCustomersList2 = [...customers, ...newCustomer]
-
-console.log(newCustomersList2)
+const sumTotal = shoppingCarts
+.reduce((prevValue, currentValue)=>{
+    return prevValue + currentValue.subtotal
+},0);
+console.log(sumTotal)
