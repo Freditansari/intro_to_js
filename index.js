@@ -4,7 +4,7 @@ let shoppingCarts=[
     {productName: "screwdriver", price: 10, qty: 1, subtotal: 10.10},
 ]
 
-const filtered = shoppingCarts.filter((item) => item.price <=50 )
+const filtered = shoppingCarts.filter((item) => item["price"] <=50 )
 
 console.log(filtered)
 
