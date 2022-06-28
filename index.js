@@ -1,12 +1,11 @@
-let shoppingCarts=[
-    {productName: "banana", price: 100, qty: 2, subtotal: 200},
-    {productName: "dragon fruit", price: 150, qty: 1, subtotal: 150},
-    {productName: "screwdriver", price: 10, qty: 1, subtotal: 10.10},
-]
-
-const filtered = shoppingCarts.filter((item) => item["price"] <=50 )
-
-console.log(filtered)
-
-const findIndex = shoppingCarts.findIndex((item)=> item.productName.includes("dragon"))
-console.log(findIndex)
+let counter = 0 
+const changeColor = () =>{
+    if(counter === 0 ){
+        document.getElementById("helloColor").style="color: red"
+        counter =1
+    }else if (counter ===1){
+        document.getElementById("helloColor").style="color: black"
+        counter =0
+    }
+    
+}
