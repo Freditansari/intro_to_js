@@ -7,3 +7,6 @@ let shoppingCarts=[
 const filtered = shoppingCarts.filter((item) => item.price <=50 )
 
 console.log(filtered)
+
+const findIndex = shoppingCarts.findIndex((item)=> item.productName.includes("dragon"))
+console.log(findIndex)
