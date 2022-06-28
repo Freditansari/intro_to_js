@@ -4,8 +4,6 @@ let shoppingCarts=[
     {productName: "screwdriver", price: 10, qty: 1, subtotal: 10.10},
 ]
 
-const sumTotal = shoppingCarts
-.reduce((prevValue, currentValue)=>{
-    return prevValue + currentValue.subtotal
-},0);
-console.log(sumTotal)
+const filtered = shoppingCarts.filter((item) => item.price <=50 )
+
+console.log(filtered)
