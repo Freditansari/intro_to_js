@@ -3,14 +3,23 @@ let data=[
     {productName: "dragon fruit", price: 150, qty: 1, subtotal: 150},
     {productName: "screwdriver", price: 10, qty: 1, subtotal: 10.10},
 ]
+let isAscended = true 
 
 // https://www.javascripttutorial.net/javascript-array-sort/
 function sortTable(key){
-    // if sort ascended or descended
     // this method works with number only
-    let sortedData = data.sort((x,y) =>{
-        return x[key] - y[key]
-    })
+    let sortedData
+    if(isAscended=== true){
+        sortedData = data.sort((x,y) =>{
+            return x[key] - y[key]
+        })
+        isAscended= false
+    }else{
+        sortedData = data.sort((x,y) =>{
+            return  y[key] - x[key]
+        })
+        isAscended=true
+    }
     renderTable(sortedData)
 }
 
