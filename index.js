@@ -6,6 +6,29 @@ let data=[
 ]
 let isAscended = true 
 
+function textSearch(){
+    let result =[]
+    var searchTerm = document.getElementById("searchInput").value;
+    let counter =0
+	data.forEach(item =>{
+        const keys = Object.keys(item)
+        keys.forEach(key =>{
+            if(String(item[key]).includes(searchTerm)){
+                result.push(counter)
+            }
+        })
+        counter++
+    })
+    let selectedArray = Array.from(new Set(result)) ;
+
+    let searchData =[];
+    selectedArray.forEach(arrayIndex =>{
+        searchData.push(data[arrayIndex])
+    })
+    console.log(searchData)
+
+    renderTable(searchData)
+}
 
 function showColumnNames(keys){
     let dropDownsHTML ="";
@@ -107,21 +130,21 @@ function renderTable(data){
         })
         tableBody+="</tr>\n"
     })
-
+    // let banana =`
+    // // <div class="col-lg-3 col-md-3 col-sm-3">
+    // //     <select class="form-select" aria-label="Default select example">
+    // //         ${dropdownHTML}
+    // //     </select>
+    // // </div>
+    // // <div class="col-lg-3 col-md-3 col-sm-3">
+    // //     <p> filter parameter</p>
+    // // </div>
+    // `
 
     let tableDefinition=`
     <div class="row">
-    <div class="col-lg-3 col-md-3 col-sm-3">
-        <select class="form-select" aria-label="Default select example">
-            ${dropdownHTML}
-        </select>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-3">
-        <p> filter parameter</p>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-6">
-        <p> filter text goes here</p>
-    </div>
+   
+
   </div>
         <table class="table table-hover">
             <thead>
