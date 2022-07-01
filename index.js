@@ -1,11 +1,14 @@
-let counter = 0 
-const changeColor = () =>{
-    if(counter === 0 ){
-        document.getElementById("helloColor").style="color: red"
-        counter =1
-    }else if (counter ===1){
-        document.getElementById("helloColor").style="color: black"
-        counter =0
-    }
-    
-}
+// select id 
+document.getElementById("cell-1").setAttribute('class',"table-primary")
+// document.getElementById("main-table").setAttribute('class', "table table-primary" )
+
+
+// select class
+// change attribute
+// adding html into an object
+
+document.getElementById("cell-1").innerHTML=""
+document.getElementById("cell-1").innerHTML="new value"
+// getting value from doc object
+var value = document.getElementById("cell-1").innerHTML
+console.log(value)
