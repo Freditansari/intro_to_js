@@ -10,5 +10,7 @@ document.getElementById("cell-1").setAttribute('class',"table-primary")
 document.getElementById("cell-1").innerHTML=""
 document.getElementById("cell-1").innerHTML="new value"
 // getting value from doc object
-var value = document.getElementById("cell-1").innerHTML
+
+
+let value = document.getElementById("text-input").value
 console.log(value)
