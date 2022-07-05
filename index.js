@@ -1,31 +1,44 @@
-let tableHeaders = ""
-
-let onloadFunc =() =>{
-    fetch('https://jsonplaceholder.typicode.com/posts/')
-        .then((response) => response.json())
-        .then((json) =>{
-            let tableColumnHeaders = Object.keys(json[0])
-            tableColumnHeaders.forEach((header)=>{
-                tableHeaders += `<th scope="col">${header.toUpperCase()}</th> \n`
-            })
-
-            document.getElementById('table-header').innerHTML= tableHeaders
-            let tableBody = ""
-            let counter = 0
-           json.forEach((item)=>{
-                tableBody+='<tr>'
-                tableColumnHeaders.forEach(tableHeader =>{
-                    tableBody+=
-                    `
-                        <td id ="cell-${counter}">${item[tableHeader]} </td>\n
-                    `
-                    counter ++
-                })
-                tableBody += '</tr>'
-            })
-            document.getElementById('table-rows').innerHTML=tableBody
-            
-        });
+let data = {
+    title: "Joe Orange", 
+    body: "lorem ipsum dolor amet",
+    userId : 1
 }
 
-window.onload=onloadFunc
+fetch('https://jsonplaceholder.typicode.com/posts',
+{
+    method: 'POST', 
+    body: JSON.stringify(data),
+    headers:{
+        "Content-type": "application/json; charset=UTF-8"
+    }
+})
+.then(response =>response.json())
+.then(json => console.log("POST :"+JSON.stringify(json)))
+
+
+
+let dataUpdate = {
+    id:1,
+    title: "Foo", 
+    body: "lorem ipsum dolor amet",
+    userId : 1
+}
+
+fetch('https://jsonplaceholder.typicode.com/posts/1',
+{
+    method: 'PUT', 
+    body: JSON.stringify(dataUpdate),
+    headers:{
+        "Content-type": "application/json; charset=UTF-8"
+    }
+})
+.then(response =>response.json())
+.then(json => console.log("PUT: "+ JSON.stringify(json)))
+
+fetch('https://jsonplaceholder.typicode.com/posts/1',
+{
+    method: 'DELETE', 
+
+})
+.then(response =>response.json())
+.then(json => console.log('DELETE: '+JSON.stringify(json)))
