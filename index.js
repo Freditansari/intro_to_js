@@ -1,16 +1,31 @@
-// select id 
-document.getElementById("cell-1").setAttribute('class',"table-primary")
-// document.getElementById("main-table").setAttribute('class', "table table-primary" )
+let tableHeaders = ""
 
+let onloadFunc =() =>{
+    fetch('https://jsonplaceholder.typicode.com/posts/')
+        .then((response) => response.json())
+        .then((json) =>{
+            let tableColumnHeaders = Object.keys(json[0])
+            tableColumnHeaders.forEach((header)=>{
+                tableHeaders += `<th scope="col">${header.toUpperCase()}</th> \n`
+            })
 
-// select class
-// change attribute
-// adding html into an object
+            document.getElementById('table-header').innerHTML= tableHeaders
+            let tableBody = ""
+            let counter = 0
+           json.forEach((item)=>{
+                tableBody+='<tr>'
+                tableColumnHeaders.forEach(tableHeader =>{
+                    tableBody+=
+                    `
+                        <td id ="cell-${counter}">${item[tableHeader]} </td>\n
+                    `
+                    counter ++
+                })
+                tableBody += '</tr>'
+            })
+            document.getElementById('table-rows').innerHTML=tableBody
+            
+        });
+}
 
-document.getElementById("cell-1").innerHTML=""
-document.getElementById("cell-1").innerHTML="new value"
-// getting value from doc object
-
-
-let value = document.getElementById("text-input").value
-console.log(value)
+window.onload=onloadFunc
