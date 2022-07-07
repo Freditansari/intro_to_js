@@ -1,4 +1,4 @@
-// render to do functions
+// render todo functions
 // add todo 
 
 // toggle done
